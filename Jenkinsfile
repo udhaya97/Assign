@@ -1,29 +1,28 @@
+def antVersion = 'Ant_1.10.7'
 pipeline {
     agent any 
     stages {
-        stage('Build') { 
-            steps {
-                withAnt(ant : 'Ant')
-                {
-                  sh 'ant'
-                 
-                }
-                 
-            }
+        stage('Build') {
+            steps { withEnv( ["ANT_HOME=${tool antVersion}"] ) {
+    sh '$ANT_HOME/bin/ant'
+}
+
+   
         }
+    }
+    
         stage('Test') { 
             steps {
-                 sh 'make check'
-                junit 'reports/**/*.xml'
+                echo '${ant}'
+                junit 'src/com/employee/test/**/*Test*.java'
             }
         }
         stage('Deploy') { 
             steps {
-                sh 'make publish'
+                echo '${ant}'
             }
         }
     }
 }
-
 
     

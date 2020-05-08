@@ -124,7 +124,7 @@
 
 			<webinf dir="${web.dir}/WEB-INF" />
 			<lib dir="${lib.dir}" />
-			<zipfileset dir="${web.dir}/resources" prefix="resources" />
+			
 		</war>
 	</target>
 

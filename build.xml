@@ -69,7 +69,7 @@
 	<target name="compile" depends="init, resolve" description="compile source code">
 		
 		<mkdir dir="${web.classes.dir}" />
-		<fileset dir="WebContent/WEB-INF/lib">
+		<fileset dir="${lib.dir}">
    			<include name="**/*.jar"/>
   			</fileset>
 		

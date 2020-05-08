@@ -69,7 +69,7 @@
 	<target name="compile" depends="init, resolve" description="compile source code">
 		<mkdir dir="${web.classes.dir}" />
 		<javac destdir="${web.classes.dir}" source="${jdk.version}" target="${jdk.version}" debug="true" includeantruntime="false" classpathref="compile.path">
-			<src path="${src.dir}" />
+			<src path="C:/Program Files/Java/jdk1.8.0_144" />
 		</javac>
 	</target>
 

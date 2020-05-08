@@ -16,8 +16,8 @@ pipeline {
                 echo "Unit tests (JUnit)..."
                 echo "Mutation tests (pitest)..."
 
-                bat "%ANT_HOME%/bin/ant.bat run-unit-tests"
-                bat "%ANT_HOME%/bin/ant.bat run-mutation-tests"
+                bat "$ANT_HOME%/bin/ant.bat run-unit-tests"
+                bat "$ANT_HOME%/bin/ant.bat run-mutation-tests"
             }
         }
         stage('Deploy') { 

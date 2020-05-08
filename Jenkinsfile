@@ -13,8 +13,11 @@ pipeline {
     
         stage('Test') { 
             steps {
-                echo '${ant}'
-                junit 'src/com/employee/test/**/*Test*.java'
+                echo "Unit tests (JUnit)..."
+                echo "Mutation tests (pitest)..."
+
+                bat "%ANT_HOME%/bin/ant.bat run-unit-tests"
+                bat "%ANT_HOME%/bin/ant.bat run-mutation-tests"
             }
         }
         stage('Deploy') { 

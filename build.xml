@@ -69,14 +69,13 @@
 	<target name="compile" depends="init, resolve" description="compile source code">
 		
 		<mkdir dir="${web.classes.dir}" />
-		<path id="master-classpath">
-  			<fileset dir="WebContent/WEB-INF/lib">
-   			 <include name="*.jar"/>
-  				</fileset>
-				</path>
-		<javac destdir="${web.classes.dir}" source="${jdk.version}" target="${jdk.version}" debug="true" includeantruntime="false" classpathref="compile.path">
+		
+		<javac destdir="${web.classes.dir}" source="${jdk.version}" target="${jdk.version}" debug="true" includeantruntime="false" >
 			<src path="${src.dir}" />
-			<classpath refid="master-classpath"/>
+			fork="yes"
+       executable="C:/Program Files/Java/jdk1.8.0_144/bin/javac"
+          compiler="javac1.8"
+			
 		</javac>
 	</target>
 

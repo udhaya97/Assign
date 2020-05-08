@@ -70,12 +70,8 @@
 		
 		<mkdir dir="${web.classes.dir}" />
 		
-		<javac destdir="${web.classes.dir}" source="${jdk.version}" target="${jdk.version}" debug="true" includeantruntime="false" >
+		<javac destdir="${web.classes.dir}" fork="yes"  executable="C:/Program Files/Java/jdk1.8.0_144/bin/javac" source="${jdk.version}" target="${jdk.version}" compiler="javac1.8" debug="true" includeantruntime="false" >
 			<src path="${src.dir}" />
-			fork="yes"
-       executable="C:/Program Files/Java/jdk1.8.0_144/bin/javac"
-          compiler="javac1.8"
-			
 		</javac>
 	</target>
 

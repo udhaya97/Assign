@@ -72,6 +72,9 @@
 		
 		<javac destdir="${web.classes.dir}" fork="yes"  executable="C:/Program Files/Java/jdk1.8.0_144/bin/javac" source="${jdk.version}" target="${jdk.version}" compiler="javac1.8" debug="true" includeantruntime="false" >
 			<src path="${src.dir}" />
+			<fileset dir="WebContent/WEB-INF/lib">
+   				 <include name="*.jar"/>
+  					</fileset>
 		</javac>
 	</target>
 

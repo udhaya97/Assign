@@ -15,12 +15,16 @@ pipeline {
     }
     
        stage('Deploy to Tomcat'){
+          steps{
      bat "copy target\\EmployeeCrudAnt.war \"${tomcatWeb}\\EmployeeCrudAnt.war\""
+          }
    }
       stage ('Start Tomcat Server') {
+         steps{
          sleep(time:5,unit:"SECONDS") 
          bat "${tomcatBin}\\startup.bat"
          sleep(time:100,unit:"SECONDS")
+         }
    }
     }
 }

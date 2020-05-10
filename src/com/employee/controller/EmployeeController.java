@@ -25,6 +25,8 @@ public class EmployeeController {
 
 	@RequestMapping("/")
 	public ModelAndView hel() {
+		
+		System.out.println("\n hello");
 		return new ModelAndView("index");
 	}
 

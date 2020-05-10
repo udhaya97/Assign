@@ -1,4 +1,7 @@
 def antVersion = 'Ant_1.10.7'
+def tomcatWeb = 'G:\\Downloads\\apache-tomcat-9.0.33\\webapps'
+   def tomcatBin = 'G:\\Downloads\\apache-tomcat-9.0.33\\bin'
+   def tomcatStatus = ''
 pipeline {
     agent any 
     stages {
@@ -11,20 +14,14 @@ pipeline {
         }
     }
     
-        stage('Test') { 
-            steps {
-                echo "Unit tests (JUnit)..."
-                echo "Mutation tests (pitest)..."
-
-                bat "$ANT_HOME%/bin/ant.bat run-unit-tests"
-                bat "$ANT_HOME%/bin/ant.bat run-mutation-tests"
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                echo '${ant}'
-            }
-        }
+       stage('Deploy to Tomcat'){
+     bat "copy target\\EmployeeCrudAnt.war \"${tomcatWeb}\\EmployeeCrudAnt.war\""
+   }
+      stage ('Start Tomcat Server') {
+         sleep(time:5,unit:"SECONDS") 
+         bat "${tomcatBin}\\startup.bat"
+         sleep(time:100,unit:"SECONDS")
+   }
     }
 }
 

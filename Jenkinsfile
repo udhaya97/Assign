@@ -21,8 +21,8 @@ pipeline {
    }
       stage ('Start Tomcat Server') {
          steps{
-         sleep(time:5,unit:"SECONDS") 
-         sh "${tomcatBin}\\startup.sh"
+         
+         bat "${tomcatBin}\\startup.bat"
         
          }
    }

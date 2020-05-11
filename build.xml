@@ -137,7 +137,7 @@
 			<classpath location="${web.classes.dir}" />
 			<batchtest fork="yes" todir="${report.dir}">
 				<fileset dir="${test.dir}">
-					<include name="**/junit.jar" />
+					includes="**/*Test.java" />
 				</fileset>
 			</batchtest>
 

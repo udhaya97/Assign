@@ -13,7 +13,7 @@ pipeline {
    
         }
     }
-       stage("test appln)
+       stage("test appln")
              {
                 steps{withEnv( ["ANT_HOME=${tool antVersion}"] ){
                 sh '$ANT_HOME/bin/ant junit'
